@@ -12,7 +12,8 @@ import {
   FileTextIcon, 
   MicIcon, 
   RocketIcon,
-  StarIcon
+  StarIcon,
+  Image
 } from "lucide-react";
 import { mockJobs } from "@/data/mockData";
 
@@ -22,29 +23,29 @@ const Index = () => {
   const featuredJobs = mockJobs.slice(0, 3);
 
   return (
-    <div className="min-h-screen flex flex-col bg-gray-50">
+    <div className="min-h-screen flex flex-col bg-gradient-to-br from-purple-50 to-white">
       <NavBar />
 
       {/* Hero Section */}
-      <section className="neurohire-gradient-bg py-20 lg:py-32">
+      <section className="bg-gradient-to-br from-purple-100 via-purple-50 to-white py-20 lg:py-32">
         <div className="container mx-auto px-4 flex flex-col lg:flex-row items-center">
           <div className="lg:w-1/2 mb-10 lg:mb-0">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-800 leading-tight mb-6">
               AI-Powered <br />
-              <span className="text-neurohire-100">Hiring Revolution</span>
+              <span className="text-purple-700">Hiring Revolution</span>
             </h1>
-            <p className="text-lg md:text-xl text-white/90 mb-8 max-w-xl">
+            <p className="text-lg md:text-xl text-gray-600 mb-8 max-w-xl">
               Connecting top talent with innovative companies through the power of artificial intelligence and machine learning.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4">
               <Link to={user ? (user.role === "jobseeker" ? "/jobseeker/dashboard" : "/admin/dashboard") : "/register"}>
-                <Button size="lg" className="bg-white text-neurohire-700 hover:bg-neurohire-50 w-full sm:w-auto">
+                <Button size="lg" className="bg-purple-600 hover:bg-purple-700 w-full sm:w-auto">
                   {user ? "Go to Dashboard" : "Get Started"}
                 </Button>
               </Link>
               <Link to="/jobs">
-                <Button variant="outline" size="lg" className="border-white text-white hover:bg-white/10 w-full sm:w-auto">
+                <Button variant="outline" size="lg" className="border-purple-300 text-purple-700 hover:bg-purple-50 w-full sm:w-auto">
                   Browse Jobs
                 </Button>
               </Link>
@@ -52,8 +53,8 @@ const Index = () => {
           </div>
           
           <div className="lg:w-1/2 lg:pl-10">
-            <div className="relative bg-white p-6 rounded-lg shadow-xl">
-              <div className="absolute -top-3 -right-3 bg-neurohire-500 text-white text-xs font-semibold px-3 py-1 rounded-full">
+            <div className="relative bg-white/80 backdrop-blur-sm p-6 rounded-lg shadow-xl">
+              <div className="absolute -top-3 -right-3 bg-purple-500 text-white text-xs font-semibold px-3 py-1 rounded-full">
                 AI Powered
               </div>
               <h3 className="font-semibold text-lg mb-4">Find your dream job</h3>
@@ -65,7 +66,7 @@ const Index = () => {
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                 />
-                <Button>
+                <Button className="bg-purple-600 hover:bg-purple-700">
                   <SearchIcon className="h-4 w-4 mr-2" />
                   Search
                 </Button>
@@ -73,22 +74,28 @@ const Index = () => {
               
               <div className="grid grid-cols-2 gap-3 mt-6">
                 <div className="flex items-center gap-2 text-sm text-gray-700">
-                  <BrainIcon className="h-4 w-4 text-neurohire-500" />
+                  <BrainIcon className="h-4 w-4 text-purple-500" />
                   <span>ML Job Matching</span>
                 </div>
                 <div className="flex items-center gap-2 text-sm text-gray-700">
-                  <FileTextIcon className="h-4 w-4 text-neurohire-500" />
+                  <FileTextIcon className="h-4 w-4 text-purple-500" />
                   <span>Resume Analysis</span>
                 </div>
                 <div className="flex items-center gap-2 text-sm text-gray-700">
-                  <MicIcon className="h-4 w-4 text-neurohire-500" />
+                  <MicIcon className="h-4 w-4 text-purple-500" />
                   <span>Voice Interviews</span>
                 </div>
                 <div className="flex items-center gap-2 text-sm text-gray-700">
-                  <ChartBarIcon className="h-4 w-4 text-neurohire-500" />
+                  <ChartBarIcon className="h-4 w-4 text-purple-500" />
                   <span>Skills Analytics</span>
                 </div>
               </div>
+              
+              <img
+                src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d"
+                alt="Person using laptop"
+                className="absolute -bottom-4 -right-4 w-24 h-24 object-cover rounded-lg shadow-lg transform rotate-3"
+              />
             </div>
           </div>
         </div>
@@ -149,8 +156,8 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Features Section */}
-      <section id="about" className="py-16 bg-gray-50">
+      {/* Features Section with Added Images */}
+      <section id="about" className="py-16 bg-gradient-to-br from-white to-purple-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Revolutionizing Recruiting</h2>
@@ -160,14 +167,19 @@ const Index = () => {
           </div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="bg-white rounded-lg shadow-md p-6">
-              <div className="w-12 h-12 bg-neurohire-100 rounded-full flex items-center justify-center text-neurohire-600 mb-4">
+            <div className="bg-white/80 backdrop-blur-sm rounded-lg shadow-md p-6 hover:shadow-lg transition-all">
+              <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center text-purple-600 mb-4">
                 <BrainIcon className="h-6 w-6" />
               </div>
               <h3 className="text-xl font-semibold mb-3">AI Resume Analysis</h3>
-              <p className="text-gray-600">
+              <p className="text-gray-600 mb-4">
                 Our advanced AI scans resumes to extract skills, experiences, and qualifications, matching candidates with perfect job opportunities.
               </p>
+              <img
+                src="https://images.unsplash.com/photo-1649972904349-6e44c42644a7"
+                alt="AI Resume Analysis"
+                className="w-full h-32 object-cover rounded-lg"
+              />
             </div>
             
             <div className="bg-white rounded-lg shadow-md p-6">
@@ -223,10 +235,10 @@ const Index = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* CTA Section with Background Pattern */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
-          <div className="bg-neurohire-600 rounded-2xl p-8 md:p-12 overflow-hidden relative">
+          <div className="bg-gradient-to-br from-purple-600 to-purple-700 rounded-2xl p-8 md:p-12 overflow-hidden relative">
             <div className="absolute inset-0 opacity-10">
               <div className="absolute inset-0 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px]"></div>
             </div>
@@ -241,17 +253,23 @@ const Index = () => {
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
                 <Link to="/register">
-                  <Button size="lg" className="bg-white text-neurohire-700 hover:bg-neurohire-50 w-full sm:w-auto font-semibold">
+                  <Button size="lg" className="bg-white text-purple-700 hover:bg-purple-50 w-full sm:w-auto font-semibold">
                     Sign Up Now
                   </Button>
                 </Link>
                 <Link to="/contact">
-                  <Button variant="outline" size="lg" className="border-white text-neurohire-50 hover:bg-white/10 w-full sm:w-auto font-semibold">
+                  <Button variant="outline" size="lg" className="border-white text-white hover:bg-white/10 w-full sm:w-auto font-semibold">
                     Contact Sales
                   </Button>
                 </Link>
               </div>
             </div>
+
+            <img
+              src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158"
+              alt="Person working"
+              className="absolute right-0 bottom-0 w-64 h-64 object-cover rounded-lg opacity-20 md:opacity-40 transform translate-x-1/4 translate-y-1/4"
+            />
           </div>
         </div>
       </section>
@@ -288,7 +306,7 @@ const Index = () => {
                 </a>
                 <a href="#" className="text-gray-400 hover:text-white">
                   <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                    <path fillRule="evenodd" d="M19.812 5.418c.861.23 1.538.907 1.768 1.768C21.998 8.746 22 12 22 12s0 3.255-.418 4.814a2.504 2.504 0 0 1-1.768 1.768c-1.56.419-7.814.419-7.814.419s-6.255 0-7.814-.419a2.505 2.505 0 0 1-1.768-1.768C2 15.255 2 12 2 12s0-3.255.417-4.814a2.507 2.507 0 0 1 1.768-1.768C5.744 5 11.998 5 11.998 5s6.255 0 7.814.418ZM15.194 12 10 15V9l5.194 3Z" clipRule="evenodd" />
+                    <path fillRule="evenodd" d="M19.812 5.418c.861.23 1.538.907 1.768 1.768C21.998 8.746 22 12 22 12s0 3.255-.418 4.814a2.504 2.504 0 01-1.768 1.768c-1.56.419-7.814.419-7.814.419s-6.255 0-7.814-.419a2.505 2.505 0 01-1.768-1.768C2 15.255 2 12 2 12s0-3.255.417-4.814a2.507 2.507 0 01 1.768-1.768C5.744 5 11.998 5 11.998 5s6.255 0 7.814.418ZM15.194 12 10 15V9l5.194 3Z" clipRule="evenodd" />
                   </svg>
                 </a>
               </div>
