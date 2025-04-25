@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -7,7 +6,7 @@ import { mockJobs } from "@/data/mockData";
 
 const JobListings = () => {
   return (
-    <div className="min-h-screen bg-gray-50 py-12">
+    <div className="min-h-screen bg-gradient-to-br from-neurohire-50 to-white py-12">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row justify-between items-center mb-8 gap-4">
           <h1 className="text-3xl font-bold text-gray-900">Browse All Jobs</h1>
@@ -18,10 +17,10 @@ const JobListings = () => {
               <input
                 type="text"
                 placeholder="Search jobs..."
-                className="w-full pl-10 pr-4 py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-neurohire-500"
+                className="w-full pl-10 pr-4 py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-neurohire-500 transition-all"
               />
             </div>
-            <Button variant="outline" className="gap-2">
+            <Button variant="outline" className="gap-2 hover:bg-neurohire-50 transition-colors">
               <FilterIcon className="h-4 w-4" />
               Filters
             </Button>
@@ -30,7 +29,7 @@ const JobListings = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {mockJobs.map((job) => (
-            <Card key={job.id} className="p-6 hover:shadow-lg transition-shadow">
+            <Card key={job.id} className="p-6 hover:shadow-lg transition-all transform hover:-translate-y-1">
               <div className="flex justify-between mb-4">
                 <div className="w-12 h-12 bg-neurohire-100/50 rounded-lg flex items-center justify-center text-neurohire-600">
                   <BriefcaseIcon className="h-6 w-6" />

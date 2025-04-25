@@ -10,6 +10,14 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import JobListings from "./pages/JobListings";
 import Contact from "./pages/Contact";
+import AboutUs from "./pages/AboutUs";
+import Careers from "./pages/Careers";
+import Press from "./pages/Press";
+import Blog from "./pages/Blog";
+import API from "./pages/API";
+import Pricing from "./pages/Pricing";
+import Documentation from "./pages/Documentation";
+import HelpCenter from "./pages/HelpCenter";
 import JobSeekerDashboard from "./pages/jobseeker/Dashboard";
 import AdminDashboard from "./pages/admin/Dashboard";
 import JobDetails from "./pages/jobseeker/JobDetails";
@@ -36,6 +44,14 @@ const App = () => (
             <Route path="/register" element={<Register />} />
             <Route path="/jobs" element={<JobListings />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/about" element={<AboutUs />} />
+            <Route path="/careers" element={<Careers />} />
+            <Route path="/press" element={<Press />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/api" element={<API />} />
+            <Route path="/pricing" element={<Pricing />} />
+            <Route path="/documentation" element={<Documentation />} />
+            <Route path="/help" element={<HelpCenter />} />
 
             {/* Job Seeker routes */}
             <Route 
